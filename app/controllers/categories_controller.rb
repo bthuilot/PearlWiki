@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to root_url, notice: 'Post was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Post was successfully created.'}
       else
         format.html { render 'categories/new' }
       end
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :title)
   end
 
   private

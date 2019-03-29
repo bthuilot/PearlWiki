@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <%=  form_for @post, method: :post, url: '/post/create'  do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+
+      <%= form.label :contents %>
+      <%= form.text_area :contents %>
+
+      <%= hidden_field_tag 'updated', Time.now %>
+      <%= hidden_field_tag 'created', Time.now %>
+
+      <%= form.select "category_id", Category.all.collect {|c| [ c.name, c.id ] } %>
+      <%= form.submit %>
+    <% end %>
+
+    <%=  form_for :category, method: :post, url: '/categories/create'  do |category_form| %>
+      <%= category_form.label :name %>
+      <%= category_form.text_field :name %>A
+
+      <%= hidden_field_tag ':no_redirect', true %>
+      <%= category_form.submit %>
+    <%end%>
+  </div>
+</div>

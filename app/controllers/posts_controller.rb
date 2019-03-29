@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories
 
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def new
@@ -16,7 +18,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_url(@post), notice: 'Post was successfully created.' }
       else
         format.html { render :new }
       end
@@ -42,11 +44,15 @@ class PostsController < ApplicationController
 
   private
 
+  def set_categories
+    @categories = Category.all
+  end
+
   def set_post
     @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:name)
+    params.require(:post).permit(:contents, :title, :updated, :created, :category_id)
   end
 end
