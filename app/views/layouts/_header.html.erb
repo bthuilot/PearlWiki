@@ -1,30 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Wiki</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item <% if request.original_fullpath == '/' %>active<%end%>">
+        <a class="nav-link" href="<%= root_path %>">Home <% if request.original_fullpath == '/' %><span class="sr-only">(current)</span><%end%></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+      <li class="nav-item <% if request.original_fullpath == '/about' %>active<%end%>">
+        <a class="nav-link" href="/about">About</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% for catergory in @categories %>
-            <a class="dropdown-item" href="/<%= catergory.name %>"><%= catergory.name %></a>
+          <% for category in @categories %>
+            <a class="dropdown-item <%if category.name == params[:name] %>active<%end%>" href="/categories/<%= category.name %>"><%= category.name %></a>
           <% end %>
           <% if @categories.empty? %>
             <h6 class="dropdown-header">No Categories found</h6>
           <% end %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/categories/create">Create Category</a>
+          <a class="dropdown-item" href="/categories/new">Create Category</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -33,13 +33,19 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">New Post</a>
-          <a class="dropdown-item" href="#">New Category</a>
+          <a class="dropdown-item" href="/categories/new">New Category</a>
         </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <select class="custom-select" id="category-search-select">
+        <option selected>All Categories</option>
+        <% for category in @categories %>
+          <option value="<%=category.name%>"><%= category.name%></option>
+        <% end %>
+      </select>
     </form>
   </div>
 </nav>
