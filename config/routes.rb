@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   post '/categories/create' => 'categories#create'
 
   # Posts
-  get '/page/:id' => 'posts#show'
   get '/page/new' => 'posts#new'
+  get '/page/:id' => 'posts#show'
   post '/page/create' => 'posts#create'
 
 end
