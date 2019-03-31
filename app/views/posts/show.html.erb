@@ -1,8 +1,19 @@
 <% provide(:title, @post.title) %>
+<div class="row justify-content-center align-items-center">
+  <div class="col-9">
+    <h1 class="post-title"><%= @post.title %></h1>
+  </div>
+  <div class="col-3 text-center">
+    <a href="/pages/<%= @post.id %>/edit" role="button" class="btn btn-success align-middle">Edit Post</a>
+    <a data-confirm="Are you sure you want to delete this page?" data-method="delete" href="/page/<%= @post.id%>" role="button" class="btn btn-danger align-middle">Delete Post</a>
+  </div>
+</div>
 <div class="row justify-content-center">
   <div class="col-12">
-    <h1 class="display-1"><%= @post.title %></h1>
+    <hr/>
   </div>
+</div>
+<div class="row justify-content-center">
   <div class="col-10">
     <%= @markdown.render(h @post.contents).html_safe %>
   </div>

@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def not_found
+  end
+
   private
 
   def get_categories

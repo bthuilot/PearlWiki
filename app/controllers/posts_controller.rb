@@ -36,9 +36,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    category = Category.find(@post.category_id);
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to "/categories/#{category.name}", notice: 'Post was successfully destroyed.' }
     end
   end
 
