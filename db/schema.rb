@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_213721) do
+ActiveRecord::Schema.define(version: 2019_05_02_004352) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "homepage"
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 

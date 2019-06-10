@@ -21,9 +21,4 @@ Rails.application.routes.draw do
   get '/page/:id/edit' => 'posts#edit'
   post '/page/:id' => 'posts#update'
 
-  # error pages
-  %w( 404 422 500 503 ).each do |code|
-    get code, :to => "static_pages#not_found", :code => code
-  end
-
 end

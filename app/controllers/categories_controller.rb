@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
+  include MarkdownHelper
+
   before_action :set_category, only: ['show']
+  before_action :set_renderer, only: ['show']
   before_action :get_all_categories
 
   def new
@@ -7,6 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find_by_name(params[:name]);
   end
 
   def create
