@@ -1,1 +1,2 @@
 <% provide(:title, "Home") %>
+<%= @markdown.render(h @home.contents).html_safe %>

@@ -1,1 +1,2 @@
 <% provide(:title, "About") %>
+<%= @markdown.render(h @about.contents).html_safe %>
