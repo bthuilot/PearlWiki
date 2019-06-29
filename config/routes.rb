@@ -1,24 +1,28 @@
 Rails.application.routes.draw do
-  resource :users
-  resource :categories
-  resource :posts
-  resource :static_pages
 
   # Static Pages
   root to: 'static_pages#home'
-  get '/about' => 'static_pages#about'
+  get '/home' => 'static_pages#home', as: 'home'
+  get '/home/edit' => 'static_pages#edit_home', as: 'edit_home'
+  post '/home/update' => 'static_pages#update_home', as: 'update_home'
+  get '/about' => 'static_pages#about', as: 'about'
+  get '/about/edit' => 'static_pages#edit_about', as: 'edit_about'
+  post '/about/update' => 'static_pages#update_about', as: 'update_about'
 
   # Category controller
-  get '/categories/new' => 'categories#new'
-  get '/categories/:name' => 'categories#show'
+  get '/categories/new' => 'categories#new', as: 'new_categories'
+  get '/categories/home/:name' => 'categories#show', as: 'categories'
   post '/categories/create' => 'categories#create'
+  delete '/categories/edit/:name' => 'categories#destroy', as: 'destroy_categories'
+  get '/categories/edit/:name' => 'categories#edit', as: 'edit_categories'
+  post '/categories/edit/:name' => 'categories#update', as: 'update_categories'
 
   # Posts
-  get '/page/new' => 'posts#new'
-  get '/page/:id' => 'posts#show'
-  post '/page/create' => 'posts#create'
-  delete '/page/:id' => 'posts#destroy'
-  get '/page/:id/edit' => 'posts#edit'
-  post '/page/:id' => 'posts#update'
+  get '/page/new' => 'posts#new', as: 'new_post'
+  get '/page/:id' => 'posts#show', as: 'post'
+  post '/page/create' => 'posts#create', as: 'create_post'
+  delete '/page/:id' => 'posts#destroy', as: 'destroy_post'
+  get '/page/:id/edit' => 'posts#edit', as: 'edit_post'
+  post '/page/:id' => 'posts#update', as: 'update_post'
 
 end

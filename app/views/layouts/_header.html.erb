@@ -26,7 +26,7 @@
           <% for category in @categories %>
             <a class="dropdown-item
               <% if category.name == params[:name] %>active
-              <% end %>" href="/categories/<%= category.name %>"><%= category.name %></a>
+              <% end %>" href="<%= categories_url(category.name) %>"><%= category.name %></a>
           <% end %>
           <% if @categories.empty? %>
             <h6 class="dropdown-header">No Categories found</h6>

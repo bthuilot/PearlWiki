@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to "/page/#{@post.id}", notice: 'Post was successfully created.' }
+        format.html {redirect_to "/page/#{@post.id}", notices: ['Post was successfully created.']}
       else
         format.html { render :new }
       end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html {redirect_to @post, notice: 'Post was successfully updated.'}
+        format.html {redirect_to @post, notices: ['Post was successfully updated.']}
       else
         format.html {render :edit, error: 'Post could not be updated'}
       end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     category = Category.find(@post.category_id);
     @post.destroy
     respond_to do |format|
-      format.html {redirect_to "/categories/#{category.name}", notice: 'Post was successfully destroyed.'}
+      format.html {redirect_to categories_url(category.name), notices: ['Post was successfully destroyed.']}
     end
   end
 

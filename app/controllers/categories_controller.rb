@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   include MarkdownHelper
 
-  before_action :set_category, only: ['show']
-  before_action :set_renderer, only: ['show']
+  before_action :set_category, only: [:edit, :update, :show, :destroy]
+  before_action :set_renderer, only: [:show]
   before_action :get_all_categories
 
   def new
@@ -10,7 +10,23 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by_name(params[:name]);
+  end
+
+  def update
+    respond_to do |format|
+      if @category.update(category_params)
+        format.html {redirect_to categories_url(@category.name), notice: 'Category was successfully updated.'}
+      else
+        format.html {render edit_categories_url(@category.name), errors: @category.errors.full_messages}
+      end
+    end
+  end
+
+  def destroy
+    @category.destroy
+    respond_to do |format|
+      format.html {redirect_to root_url, notice: 'Post was successfully destroyed.'}
+    end
   end
 
   def create
@@ -18,9 +34,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to root_url, notice: 'Category was successfully created.'}
+        format.html {redirect_to categories_url(@category.name, notice: 'Category was successfully created.')}
       else
-        format.html {redirect_to controller: 'categories', action: 'new', errors: @category.errors.full_messages}
+        format.html {redirect_to new_categories_url(errors: @category.errors.full_messages)}
       end
     end
   end
@@ -32,7 +48,10 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :title)
+    params.require(:category).permit(:name, :homepage)
+  end
+
+  def edit
   end
 
   private
