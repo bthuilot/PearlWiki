@@ -1,2 +1,20 @@
 <% provide(:title, "About") %>
-<%= @markdown.render(h @about.contents).html_safe %>
+<div class="row justify-content-center align-items-center">
+  <div class="col-9">
+    <h1 class="category-title">About</h1>
+  </div>
+  <div class="col-3 text-center">
+    <a href="<%= edit_about_url %>" role="button" class="btn btn-success align-middle">Edit
+      Page</a>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-12">
+    <hr/>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <%= @markdown.render(h @about.contents).html_safe %>
+  </div>
+</div>

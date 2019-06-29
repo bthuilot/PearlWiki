@@ -1,18 +1,18 @@
-<% provide(:title, "Create Category") %>
+<% provide(:title, "Edit Home") %>
 <div class="row justify-content-center">
   <div class="col-12">
-    <%= form_for @category, method: :post, url: '/categories/create' do |form| %>
+    <%= form_for @about, method: :post, url: update_about_url do |form| %>
       <div class="form-group">
         <%= form.label :name, for: 'category-name-input' %>
-        <%= form.text_field :name, class: 'form-control', id: 'category-name-input' %>
+        <%= form.text_field :name, class: 'form-control disabled', id: 'category-name-input', placeholder: @about.name %>
       </div>
 
       <div class="form-group">
-        <%= form.label :homepage, for: 'category-homepage-input' %>
-        <%= form.text_area :homepage,
+        <%= form.label :contents, for: 'category-homepage-input' %>
+        <%= form.text_area :contents,
                            class: 'form-control', id: 'category-homepage-input',
                            style: "font-family:monospace;", rows: '20',
-                           placeholder: "# Hello World\n\nI'm a new post!" %>
+                           placeholder: "# About page" %>
       </div>
 
       <div class="form-group">
