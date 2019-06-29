@@ -18,9 +18,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to root_url, notice: 'Post was successfully created.'}
+        format.html { redirect_to root_url, notice: 'Category was successfully created.'}
       else
-        format.html { render 'categories/new' }
+        format.html {redirect_to controller: 'categories', action: 'new', errors: @category.errors.full_messages}
       end
     end
   end

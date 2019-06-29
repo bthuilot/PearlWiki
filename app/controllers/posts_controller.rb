@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def new
     if Category.all.empty?
-      redirect_to '/categories/new', error: 'No Categories created yet'
+      redirect_to controller: 'categories', action: 'new', errors: ["No Categories created yet: You must create a category before creating a post"];
     else
       @post = Post.new
     end
