@@ -1,0 +1,19 @@
+<nav class="flex-column">
+  <h3>Categories</h3>
+  <hr/>
+  <% @categories.each do |category| %>
+    <a class='no-underline-link' data-toggle="collapse" href="#collapse-<%= category.name.parameterize %>-dropdown" role="button" aria-expanded="false" aria-controls="collapse-<%= category.name.parameterize %>-dropdown">
+      <h4 class="text-muted"><%= category.name %> <i data-toggle="collapse" class="material-icons">arrow_drop_down</i>
+      </h4>
+    </a>
+    <div class="collapse" id="collapse-<%= category.name.parameterize %>-dropdown">
+      <% category.posts.each do |post| %>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= post_url(post) %>"><%= post.title %></a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+</nav>
