@@ -23,10 +23,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html {redirect_to root_url, notice: 'Post was successfully destroyed.'}
-    end
+    # TODO Make warning to notify users that all posts associated with category will be deleted to
+    #@category.destroy
+    #respond_to do |format|
+    #  format.html {redirect_to root_url, notice: 'Post was successfully destroyed.'}
+    #end
   end
 
   def create
