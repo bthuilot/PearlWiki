@@ -17,9 +17,9 @@ class StaticPagesController < ApplicationController
   def update_home
     respond_to do |format|
       if @home.update(system_page_params)
-        format.html {redirect_to home_url, notices: ['Home page was successfully updated.']}
+        format.html {redirect_to home_url(successes: ['Home page was successfully updated.'])}
       else
-        format.html {render :edit_home, errors: ['Home page could not be updated']}
+        format.html {redirect_to edit_home_url(errors: ['Home page could not be updated'])}
       end
     end
   end
@@ -34,9 +34,9 @@ class StaticPagesController < ApplicationController
   def update_about
     respond_to do |format|
       if @about.update(system_page_params)
-        format.html {redirect_to about_urlx, notices: ['About page was successfully updated.']}
+        format.html {redirect_to about_url, notices: ['About page was successfully updated.']}
       else
-        format.html {render :edit_about, errors: ['About page could not be updated']}
+        format.html {redirect_to edit_about_url(errors: ['About page could not be updated'])}
       end
     end
   end
