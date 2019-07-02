@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html {redirect_to categories_url(@category.name), notice: 'Category was successfully updated.'}
+        format.html {redirect_to categories_url(@category.name, successes: ['Category was successfully updated.'])}
       else
         format.html {render edit_categories_url(@category.name), errors: @category.errors.full_messages}
       end
@@ -23,11 +23,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    # TODO Make warning to notify users that all posts associated with category will be deleted to
-    #@category.destroy
-    #respond_to do |format|
-    #  format.html {redirect_to root_url, notice: 'Post was successfully destroyed.'}
-    #end
+    @category.posts.each do |post|
+      post.destroy
+    end
+
+    @category.destroy
+    respond_to do |format|
+     format.html {redirect_to root_url(successes: ['Post was successfully destroyed.'])}
+    end
   end
 
   def create
@@ -35,7 +38,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html {redirect_to categories_url(@category.name, notice: 'Category was successfully created.')}
+        format.html {redirect_to categories_url(@category.name, successes: ['Category was successfully created.'])}
       else
         format.html {redirect_to new_categories_url(errors: @category.errors.full_messages)}
       end
