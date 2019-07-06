@@ -17,7 +17,7 @@
       <br>
       <%= form.label :category_id %>
       <br>
-      <%= form.select "category_id", Category.all.collect {|c| [c.name, c.id]}, {}, { class: 'custom-select' } %>
+      <%= form.select "category_id", Category.all.collect {|c| [c.name, c.id]}, {}, {class: 'custom-select'} %>
       <br>
       <br>
       <%= form.submit class: 'btn btn-primary mb-2' %>
