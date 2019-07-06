@@ -1,0 +1,23 @@
+<% provide(:title, "Edit Post") %>
+<div class="row justify-content-center">
+  <div class="col-12">
+    <%= form_for @post, method: :post, url: update_post_url(@post) do |form| %>
+      <div class="form-group">
+        <%= form.label :title, for: 'post-name-input' %>
+        <%= form.text_field :title, class: 'form-control', id: 'post-name-input' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :contents, for: 'post-homepage-input' %>
+        <%= form.text_area :contents,
+                           class: 'form-control', id: 'post-homepage-input',
+                           style: "font-family:monospace;", rows: '20',
+                           placeholder: "# Hello World\n\nI'm a new post!" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
