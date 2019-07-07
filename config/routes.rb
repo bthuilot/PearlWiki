@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/search_all'
+  get 'search/search_category'
   # Static Pages
   root to: 'static_pages#home'
   get '/home' => 'static_pages#home', as: 'home'
@@ -24,5 +26,8 @@ Rails.application.routes.draw do
   delete '/page/:id' => 'posts#destroy', as: 'destroy_post'
   get '/page/:id/edit' => 'posts#edit', as: 'edit_post'
   post '/page/:id' => 'posts#update', as: 'update_post'
+
+  # Search
+  get '/search' => 'search#search', as: 'search'
 
 end
