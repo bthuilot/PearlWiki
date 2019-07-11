@@ -16,6 +16,10 @@
  */
 @import "material";
 
+$NORMAL_TEXT_COLOR: rgba(0, 0, 0, 0.87);
+$WHITE_TEXT: white;
+$INVISIBLE_TEXT: rgba(0, 0, 0, 0);
+
 
 #header {
   margin-bottom: 50px;
@@ -26,9 +30,21 @@
 }
 
 .black-link {
-  color: rgba(0, 0, 0, 0.87);
+  color: $NORMAL_TEXT_COLOR
 }
 
 .black-link:hover {
-  color: rgba(0, 0, 0, 0.87);
+  color: $NORMAL_TEXT_COLOR;
+}
+
+.select-no-border {
+  border-color: $INVISIBLE_TEXT;
+}
+
+.navbar-dark select {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg fill="%23FFFFFF" fill-opacity="1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+}
+
+.navbar-search-select option {
+  color: $NORMAL_TEXT_COLOR;
 }
