@@ -47,8 +47,8 @@
     </ul>
 
     <!-- TODO Fix styling for dropdown -->
-    <%= form_for :search, method: :get, html: {class: 'form-inline my-2 my-lg-0'}, url: '/search' do |form| %>
-      <%= form.select :search_category, Category.all.collect {|c| [c.name, c.id, {class: ""}]}, {include_blank: 'All Categories'}, {class: 'custom-select navbar-dark select-no-border'} %>
+    <%= form_for :search, method: :get, html: {class: 'form-inline my-2 my-lg-0 navbar-search-select'}, url: '/search' do |form| %>
+      <%= form.select :search_category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'custom-select navbar-dark select-no-border'} %>
 
       <%= form.text_field :search_term, class: 'form-control mr-sm-2', placeholder: "Search" %>
       <br>

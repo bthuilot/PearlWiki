@@ -1,7 +1,63 @@
-<% @posts.each do |post| %>
-  <%= post.title %>
+<%= form_for :search, method: :get, html: {class: ''}, url: '/search' do |form| %>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-row">
+        <div class="form-group col-md-10 col-sm-12">
+          <%= form.text_field :search_term, class: "form-control", placeholder: 'Search' %>
+        </div>
+        <div class="form-group col-md-2 col-sm-6">
+          <%= form.select :search_category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'form-control custom-select'} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <p>Page:</p>
+    </div>
+    <div class="col-12 text-center">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <% if @page > 1 %>
+          <%= button_tag(type: 'submit', class: "btn btn-light", name: "page", value: @page - 1) do %>
+            <i class="material-icons">
+              keyboard_arrow_left
+            </i>
+          <% end %>
+        <% end %>
+        <% start = @page < 1 ? 1 : @page; ([start - 4, 1].max..[start + 4, @max_page - 1].min).each do |page| %>
+          <%= form.submit page, name: "page", value: page, class: "btn btn-light #{page == @page ? 'active' : ''} " %>
+        <% end %>
+        <% if @page < @max_page - 1 %>
+          <%= button_tag(type: 'submit', class: "btn btn-light", name: "page", value: @page + 1) do %>
+            <i class="material-icons">
+              keyboard_arrow_right
+            </i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center top-buffer">
+    <div class="col-12 text-center">
+      <%= button_tag(type: 'submit', class: "btn btn-light #{ @page < 1 ? 'active' : ''}", name: "page", value: -1) do %>
+        All Results (<%= @posts_length %>)
+      <% end %>
+    </div>
+  </div>
 <% end %>
-<!--
-TODO
-Add styling for results and link to each post
--->
+<div class="row large-top-buffer">
+  <div class="col-12">
+    <div class="list-group">
+      <% @posts.each do |post| %>
+        <a href="<%= post_url(post) %>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= post.title %></h5>
+            <small class="text-muted">Category: <%= post.category.name %></small>
+          </div>
+          <small class="text-muted"><%= get_text_preview post %></small>
+        </a>
+        <br/>
+      <% end %>
+    </div>
+  </div>
+</div>
