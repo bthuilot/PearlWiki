@@ -58,6 +58,7 @@ group :development do
 end
 
 group :test do
+  gem 'travis'
   gem 'rails-controller-testing'
   gem 'minitest'
   gem 'minitest-reporters'
