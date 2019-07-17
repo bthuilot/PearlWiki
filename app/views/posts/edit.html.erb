@@ -1,4 +1,4 @@
-<% provide(:title, "Edit Post") %>
+<% provide(:title, "Edit #{@post.title}") %>
 <div class="row justify-content-center">
   <div class="col-12">
     <%= form_for @post, method: :post, url: update_post_url(@post) do |form| %>

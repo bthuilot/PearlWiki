@@ -1,13 +1,94 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: 
-  contents: MyText
+finance_1:
+  title: Finance Post
+  contents: Test Finance Post
   created: 2019-03-28 12:48:34
   updated: 2019-03-28 12:48:34
+  category: :finance
 
-two:
-  title: 
-  contents: MyText
+software_dev_1:
+  title: Software Dev Post
+  contents: Test Software Dev Post
   created: 2019-03-28 12:48:34
   updated: 2019-03-28 12:48:34
+  category: :software_dev
+
+admin_0:
+  title: admin_post_0
+  contents: Test Post 0
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_1:
+  title: admin_post_1
+  contents: Test Post 1
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_2:
+  title: admin_post_2
+  contents: Test Post 2
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_3:
+  title: admin_post_3
+  contents: Test Post 3
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_4:
+  title: admin_post_4
+  contents: Test Post 4
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_5:
+  title: admin_post_5
+  contents: Test Post 5
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_6:
+  title: admin_post_6
+  contents: Test Post 6
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_7:
+  title: admin_post_7
+  contents: Test Post 7
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_8:
+  title: admin_post_8
+  contents: Test Post 8
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin
+
+
+admin_9:
+  title: admin_post_9
+  contents: Test Post 9
+  created: 2019-03-28 12:48:34
+  updated: 2019-03-28 12:48:34
+  category: :admin

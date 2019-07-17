@@ -1,10 +1,10 @@
-<% provide(:title, @category.name + " | RailsWiki") %>
+<% provide(:title, @category.name) %>
 <div class="row justify-content-center align-items-center">
   <div class="col-9">
     <h1 class="category-title"><%= @category.name %></h1>
   </div>
   <div class="col-3 text-center pull-right">
-    <a href="<%= edit_categories_url(@category.name) %>" role="button" class="btn btn-success align-middle">Edit
+    <a href="<%= edit_categories_url(@category) %>" role="button" class="btn btn-success align-middle">Edit
       Category</a>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoryModal">
       Delete Category
@@ -26,7 +26,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-            <a data-method="delete" href="<%= destroy_categories_url(@category.name) %>" role="button" class="btn btn-danger align-middle" data-dismiss="modal">Delete Category</a>
+            <a data-method="delete" href="<%= destroy_categories_url(@category) %>" role="button" class="btn btn-danger align-middle" data-dismiss="modal">Delete
+              Category</a>
           </div>
         </div>
       </div>

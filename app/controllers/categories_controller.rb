@@ -15,9 +15,9 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html {redirect_to categories_url(@category.name, successes: ['Category was successfully updated.'])}
+        format.html {redirect_to categories_url(@category, successes: ['Category was successfully updated.'])}
       else
-        format.html {render edit_categories_url(@category.name), errors: @category.errors.full_messages}
+        format.html {redirect_to edit_categories_url(@category, errors: @category.errors.full_messages)}
       end
     end
   end
@@ -38,27 +38,25 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html {redirect_to categories_url(@category.name, successes: ['Category was successfully created.'])}
+        format.html {redirect_to categories_url(@category, successes: ['Category was successfully created.'])}
       else
         format.html {redirect_to new_categories_url(errors: @category.errors.full_messages)}
       end
     end
   end
 
+  def edit
+  end
+
   private
 
   def set_category
-    @category = Category.where(name: params[:name]).first
+    @category = Category.find(params[:id])
   end
 
   def category_params
     params.require(:category).permit(:name, :homepage)
   end
-
-  def edit
-  end
-
-  private
 
   def get_all_categories
     @categories = Category.all

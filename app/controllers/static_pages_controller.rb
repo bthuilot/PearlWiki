@@ -51,6 +51,6 @@ class StaticPagesController < ApplicationController
   end
 
   def system_page_params
-    params.require(:system_page).permit(:name, :contents)
+    params.require(:system_page).permit(:contents)
   end
 end

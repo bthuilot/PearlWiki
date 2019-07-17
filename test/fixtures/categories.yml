@@ -1,7 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+software_dev:
+  name: Software Development Category
+  homepage: This is the category for all *software development* pages
 
-two:
-  name: MyString
+finance:
+  name: Finance Category
+  homepage: This is the category for all *finance* pages
+
+dev_ops:
+  name: Developer Opeartions Category
+  homepage: This is the category for all *dev ops* pages
+
+admin:
+  name: Admin Category
+  homepage: This is the category for all *admin* pages
