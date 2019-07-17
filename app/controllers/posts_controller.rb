@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html {redirect_to @post, notices: ['Post was successfully updated.']}
       else
-        format.html {render :edit, error: 'Post could not be updated'}
+        format.html {redirect_to edit_post_url(@post, errors: @post.errors.full_messages)}
       end
     end
   end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     category = Category.find(@post.category_id);
     @post.destroy
     respond_to do |format|
-      format.html {redirect_to categories_url(category.name), notices: ['Post was successfully destroyed.']}
+      format.html {redirect_to categories_url(category, notices: ['Post was successfully destroyed.'])}
     end
   end
 

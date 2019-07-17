@@ -1,4 +1,4 @@
-<% provide(:title, "Edit Category") %>
+<% provide(:title, "Edit #{@category.name}") %>
 <div class="row justify-content-center">
   <div class="col-12">
     <%= form_for @category, method: :post, url: update_categories_url(@category.name) do |form| %>

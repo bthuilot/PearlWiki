@@ -6,9 +6,4 @@ class SearchControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get search_category" do
-    get search_search_category_url
-    assert_response :success
-  end
-
 end

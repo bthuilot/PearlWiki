@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   # Category controller
   get '/categories/new' => 'categories#new', as: 'new_categories'
-  get '/categories/home/:name' => 'categories#show', as: 'categories'
+  get '/categories/home/:id' => 'categories#show', as: 'categories'
   post '/categories/create' => 'categories#create'
-  delete '/categories/edit/:name' => 'categories#destroy', as: 'destroy_categories'
-  get '/categories/edit/:name' => 'categories#edit', as: 'edit_categories'
-  post '/categories/edit/:name' => 'categories#update', as: 'update_categories'
+  delete '/categories/edit/:id' => 'categories#destroy', as: 'destroy_categories'
+  get '/categories/edit/:id' => 'categories#edit', as: 'edit_categories'
+  post '/categories/edit/:id' => 'categories#update', as: 'update_categories'
 
   # Posts
   get '/page/new' => 'posts#new', as: 'new_post'
