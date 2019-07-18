@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'search/search_all'
-  get 'search/search_category'
   # Static Pages
   root to: 'static_pages#home'
   get '/home' => 'static_pages#home', as: 'home'

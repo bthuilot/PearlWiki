@@ -48,9 +48,9 @@
 
     <!-- TODO Fix styling for dropdown -->
     <%= form_for :search, method: :get, html: {class: 'form-inline my-2 my-lg-0 navbar-search-select'}, url: '/search' do |form| %>
-      <%= form.select :search_category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'custom-select navbar-dark select-no-border'} %>
+      <%= form.select :category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'custom-select navbar-dark select-no-border'} %>
 
-      <%= form.text_field :search_term, class: 'form-control mr-sm-2', placeholder: "Search" %>
+      <%= form.text_field :term, class: 'form-control mr-sm-2', placeholder: "Search" %>
       <br>
       <%= form.submit :search, class: 'btn btn-outline-success my-2 my-sm-0' %>
     <% end %>

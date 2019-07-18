@@ -2,7 +2,7 @@
 <div class="row justify-content-center align-items-center">
   <div class="col-9">
     <h1 class="post-title">
-      <a class="black-link no-underline-link" href="<%= categories_url(@post.category.name) %>">
+      <a class="black-link no-underline-link" href="<%= categories_url(@post.category) %>">
         <%= @post.category.name %>
       </a>
       <span class="breadcrumb-post">
@@ -29,6 +29,6 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-10">
-    <%= @markdown.render(h @post.contents).html_safe %>
+    <%= markdown_renderer.render(h @post.contents).html_safe %>
   </div>
 </div>

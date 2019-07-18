@@ -41,6 +41,6 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-10">
-    <%= @markdown.render(h @category.homepage).html_safe %>
+    <%= markdown_renderer.render(h @category.homepage).html_safe %>
   </div>
 </div>

@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
   include MarkdownHelper
 
   before_action :set_category, only: [:edit, :update, :show, :destroy]
-  before_action :set_renderer, only: [:show]
   before_action :get_all_categories
 
   def new

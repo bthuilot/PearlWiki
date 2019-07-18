@@ -1,12 +1,13 @@
+<% provide(:title, "Search") %>
 <%= form_for :search, method: :get, html: {class: ''}, url: '/search' do |form| %>
   <div class="row">
     <div class="col-12">
       <div class="form-row">
         <div class="form-group col-md-10 col-sm-12">
-          <%= form.text_field :search_term, class: "form-control", placeholder: 'Search' %>
+          <%= form.text_field :term, class: "form-control", placeholder: 'Search' %>
         </div>
         <div class="form-group col-md-2 col-sm-6">
-          <%= form.select :search_category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'form-control custom-select'} %>
+          <%= form.select :category, Category.all.collect {|c| [c.name, c.id]}, {include_blank: 'All Categories'}, {class: 'form-control custom-select'} %>
         </div>
       </div>
     </div>
@@ -17,18 +18,18 @@
     </div>
     <div class="col-12 text-center">
       <div class="btn-group mr-2" role="group" aria-label="First group">
-        <% if @page > 1 %>
-          <%= button_tag(type: 'submit', class: "btn btn-light", name: "page", value: @page - 1) do %>
+        <% if has_left_arrow %>
+          <%= button_tag(type: 'submit', class: "prev-page-button btn btn-light", name: "page", value: @page - 1) do %>
             <i class="material-icons">
               keyboard_arrow_left
             </i>
           <% end %>
         <% end %>
-        <% start = @page < 1 ? 1 : @page; ([start - 4, 1].max..[start + 4, @max_page - 1].min).each do |page| %>
-          <%= form.submit page, name: "page", value: page, class: "btn btn-light #{page == @page ? 'active' : ''} " %>
+        <% (get_lower_page..get_higher_page).each do |page| %>
+          <%= form.submit page, name: "page", value: page, class: "page-buttons btn btn-light #{page == @page ? 'active' : ''} " %>
         <% end %>
-        <% if @page < @max_page - 1 %>
-          <%= button_tag(type: 'submit', class: "btn btn-light", name: "page", value: @page + 1) do %>
+        <% if has_right_arrow %>
+          <%= button_tag(type: 'submit', class: "next-page-button btn btn-light", name: "page", value: @page + 1) do %>
             <i class="material-icons">
               keyboard_arrow_right
             </i>
@@ -39,8 +40,8 @@
   </div>
   <div class="row justify-content-center top-buffer">
     <div class="col-12 text-center">
-      <%= button_tag(type: 'submit', class: "btn btn-light #{ @page < 1 ? 'active' : ''}", name: "page", value: -1) do %>
-        All Results (<%= @posts_length %>)
+      <%= button_tag(type: 'submit', class: "all-results-button btn btn-light #{ @page < 1 ? 'active' : ''}", name: "page", value: -1) do %>
+        All Results (<%= @posts.length %>)
       <% end %>
     </div>
   </div>
@@ -48,7 +49,7 @@
 <div class="row large-top-buffer">
   <div class="col-12">
     <div class="list-group">
-      <% @posts.each do |post| %>
+      <% get_paginated_results.each do |post| %>
         <a href="<%= post_url(post) %>" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"><%= post.title %></h5>
