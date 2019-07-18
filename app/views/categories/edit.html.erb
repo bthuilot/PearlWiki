@@ -1,7 +1,7 @@
 <% provide(:title, "Edit #{@category.name}") %>
 <div class="row justify-content-center">
   <div class="col-12">
-    <%= form_for @category, method: :post, url: update_categories_url(@category.name) do |form| %>
+    <%= form_for @category, method: :post, url: update_categories_url(@category) do |form| %>
       <div class="form-group">
         <%= form.label :name, for: 'category-name-input' %>
         <%= form.text_field :name, class: 'form-control', id: 'category-name-input' %>

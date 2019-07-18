@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   include MarkdownHelper
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_renderer, only: [:show]
   before_action :set_categories
 
   def show

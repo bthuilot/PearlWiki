@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
   include MarkdownHelper
 
-  before_action :set_renderer, only: [:home, :about]
   before_action :get_categories
 
   before_action :about, only: [:edit_about, :update_about]
