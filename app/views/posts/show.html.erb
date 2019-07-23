@@ -5,20 +5,19 @@
       <a class="black-link no-underline-link" href="<%= categories_url(@post.category) %>">
         <%= @post.category.name %>
       </a>
-      <span class="breadcrumb-post">
-        <i class="material-icons">keyboard_arrow_right</i>
+      <span class="align-icon">
+        <%= octicon "chevron-right", height: 32 %>
       </span>
       <%= @post.title %>
     </h1>
     </ol>
   </div>
-  <div class="col-3 text-center">
-    <a href="<%= edit_post_url(@post) %>" role="button" class="btn btn-success align-middle">
-      Edit Post
-    </a>
+  <div class="col-3 text-right pull-right">
+    <a href="<%= edit_post_url(@post) %>" role="button" class="mx-2">
+      <%= octicon "pencil", height: 32 %></a>
     <a data-confirm="Are you sure you want to delete this page?"
-       data-method="delete" href="/page/<%= @post.id %>" role="button" class="btn btn-danger align-middle">
-      Delete Post
+       data-method="delete" href="/page/<%= @post.id %>" role="button" class="mx-2">
+      <%= octicon "trashcan", height: 32 %>
     </a>
   </div>
 </div>

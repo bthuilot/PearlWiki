@@ -16,10 +16,10 @@ class SearchController < ApplicationController
 
   def get_search_results
     if params[:search]
-      search_term = params[:search][:term]
-      search_category_id = /\A\d+\z/.match(params[:search][:category]) ? params[:search][:category].to_i : nil
+      @search_term = params[:search][:term]
+      @search_category_id = /\A\d+\z/.match(params[:search][:category]) ? params[:search][:category].to_i : nil
     end
-    Post.search(search_term, search_category_id)
+    Post.search(@search_term, @search_category_id)
   end
 
   def get_search_page
