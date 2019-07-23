@@ -3,12 +3,14 @@
   <div class="col-9">
     <h1 class="category-title"><%= @category.name %></h1>
   </div>
-  <div class="col-3 text-center pull-right">
-    <a href="<%= edit_categories_url(@category) %>" role="button" class="btn btn-success align-middle">Edit
-      Category</a>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoryModal">
-      Delete Category
-    </button>
+  <div class="col-3 text-right pull-right">
+    <a href="<%= new_post_url %>" role="button" class="mx-2">
+      <%= octicon "plus", height: 32 %></a>
+    <a href="<%= edit_categories_url(@category) %>" role="button" class="mx-2">
+      <%= octicon "pencil", height: 32 %></a>
+    <a href='#' data-toggle="modal" data-target="#deleteCategoryModal" class="mx-2">
+      <%= octicon "trashcan", height: 32 %>
+    </a>
     <!-- Confirm Delete Modal -->
     <div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
