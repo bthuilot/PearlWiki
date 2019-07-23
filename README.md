@@ -5,7 +5,6 @@ I started this project when I was looking for wiki software to use for a club I 
 
 Thus spawned this!
 
-Checkout the live demo [here]()
 
 ## Getting started
 *The wiki requires ruby versions >= 2.5.0*
