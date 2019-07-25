@@ -30,4 +30,4 @@ rails server
 [![Build Status](https://travis-ci.com/bthuilot/PearlWiki.svg?token=DwRwXcm2t95em7ygX8ov&branch=master)](https://travis-ci.com/bthuilot/PearlWiki)
 
 ## License
-Pearl Wiki is released under the [MIT License]().
+Pearl Wiki is released under the [MIT License](https://github.com/bthuilot/PearlWiki/blob/master/LICENSE).
