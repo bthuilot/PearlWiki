@@ -1,5 +1,5 @@
 # Pearl Wiki
-Open source wiki software powered by [rails](https://github.com/rails/rails)
+Open source wiki software powered by [Rails](https://github.com/rails/rails)
 
 I started this project when I was looking for wiki software to use for a club I was a apart of and didn't like any of the options I found
 
@@ -30,4 +30,5 @@ rails server
 [![Build Status](https://travis-ci.com/bthuilot/PearlWiki.svg?token=DwRwXcm2t95em7ygX8ov&branch=master)](https://travis-ci.com/bthuilot/PearlWiki)
 
 ## License
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 Pearl Wiki is released under the [MIT License](https://github.com/bthuilot/PearlWiki/blob/master/LICENSE).
