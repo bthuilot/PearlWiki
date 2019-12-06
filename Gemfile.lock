@@ -146,7 +146,7 @@ GEM
       rails
     popper_js (1.14.5)
     public_suffix (3.0.3)
-    puma (3.12.1)
+    puma (3.12.2)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -278,7 +278,7 @@ DEPENDENCIES
   minitest
   minitest-reporters
   octicons_helper
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2)
   rails-controller-testing
   redcarpet
