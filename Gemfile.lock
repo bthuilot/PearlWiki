@@ -146,7 +146,7 @@ GEM
       rails
     popper_js (1.14.5)
     public_suffix (3.0.3)
-    puma (3.12.4)
+    puma (3.12.6)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
